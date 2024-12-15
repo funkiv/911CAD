@@ -40,7 +40,7 @@ export default function Example() {
         <header>
           <div className="sm:flex sm:items-center sm:justify-between">
             <h3 className="text-tremor-title font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
-              911 CAD Center
+              Chiang Mai Fire Department
             </h3>
             <div className="mt-4 sm:mt-0 sm:flex sm:items-center sm:space-x-2">
               <Select

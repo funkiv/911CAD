@@ -11,67 +11,40 @@ import {
 
 export function UnitBoard() {
   const data: Array<{
-    workspace: string;
-    owner: string;
+    unitNumber: string;
     status: string;
-    costs: string;
-    region: string;
-    capacity: string;
-    lastEdited: string;
+    runID: number;
+    callType: string;
   }> = [
     {
-      workspace: "sales_by_day_api",
-      owner: "John Doe",
-      status: "Live",
-      costs: "$3,509.00",
-      region: "US-West 1",
-      capacity: "99%",
-      lastEdited: "23/09/2023 13:00",
+      unitNumber: "Engine 1",
+      status: "Dispatched",
+      runID: 1,
+      callType: "Sick Person",
     },
     {
-      workspace: "marketing_campaign",
-      owner: "Jane Smith",
-      status: "Live",
-      costs: "$5,720.00",
-      region: "US-East 2",
-      capacity: "80%",
-      lastEdited: "22/09/2023 10:45",
+      unitNumber: "Engine 2",
+      status: "Enroute",
+      runID: 2,
+      callType: "Cardiac Arrest",
     },
     {
-      workspace: "test_environment",
-      owner: "David Clark",
-      status: "Inactive",
-      costs: "$800.00",
-      region: "EU-Central 1",
-      capacity: "40%",
-      lastEdited: "25/09/2023 16:20",
+      unitNumber: "Rescue 1",
+      status: "On Scene",
+      runID: 3,
+      callType: "Mental Health",
     },
     {
-      workspace: "sales_campaign",
-      owner: "Jane Smith",
-      status: "Live",
-      costs: "$5,720.00",
-      region: "US-East 2",
-      capacity: "80%",
-      lastEdited: "22/09/2023 10:45",
+      unitNumber: "Rescue 2",
+      status: "Hospital",
+      runID: 4,
+      callType: "Bleeding",
     },
     {
-      workspace: "development_env",
-      owner: "Mike Johnson",
-      status: "Inactive",
-      costs: "$4,200.00",
-      region: "EU-West 1",
-      capacity: "60%",
-      lastEdited: "21/09/2023 14:30",
-    },
-    {
-      workspace: "new_workspace_1",
-      owner: "Alice Brown",
-      status: "Inactive",
-      costs: "$2,100.00",
-      region: "US-West 2",
-      capacity: "75%",
-      lastEdited: "24/09/2023 09:15",
+      unitNumber: "Engine 1",
+      status: "Enroute",
+      runID: 5,
+      callType: "Cardiac Arrest",
     },
   ];
 
@@ -80,31 +53,25 @@ export function UnitBoard() {
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeaderCell>Workspace</TableHeaderCell>
-            <TableHeaderCell>Owner</TableHeaderCell>
+            <TableHeaderCell>Run ID</TableHeaderCell>
+            <TableHeaderCell>Unit Number</TableHeaderCell>
             <TableHeaderCell>Status</TableHeaderCell>
-            <TableHeaderCell>Region</TableHeaderCell>
-            <TableHeaderCell>Capacity</TableHeaderCell>
-            <TableHeaderCell className="text-right">Costs</TableHeaderCell>
-            <TableHeaderCell className="text-right">
-              Last edited
-            </TableHeaderCell>
+            <TableHeaderCell>Call Type</TableHeaderCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data.map((item) => (
-            <TableRow key={item.workspace}>
-              <TableCell>{item.workspace}</TableCell>
-              <TableCell>{item.owner}</TableCell>
+            <TableRow key={item.unitNumber}>
+              <TableCell>{item.runID}</TableCell>
+              <TableCell>{item.unitNumber}</TableCell>
               <TableCell>
-                {/* <Badge
-                      variant={item.status === "Inactive" ? "warning" : "default"}
-                    >
-                      {item.status}
-                    </Badge> */}
+                <Badge
+                // variant={item.status === "Inactive" ? "warning" : "default"}
+                >
+                  {item.status}
+                </Badge>
               </TableCell>
-              <TableCell>{item.region}</TableCell>
-              <TableCell>{item.capacity}</TableCell>
+              <TableCell>{item.callType}</TableCell>
               <TableCell className="text-right">{item.costs}</TableCell>
               <TableCell className="text-right">{item.lastEdited}</TableCell>
             </TableRow>
