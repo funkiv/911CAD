@@ -1,0 +1,39 @@
+{
+  "callData": [
+    {
+      "unitNumber": "Engine 1",
+      "status": "Dispatched",
+      "runID": 1,
+      "callType": "Sick Person",
+      "callLocation": "30.393534, -86.495781"
+    },
+    {
+      "unitNumber": "Engine 2",
+      "status": "Enroute",
+      "runID": 2,
+      "callType": "Cardiac Arrest",
+      "callLocation": "30.393534, -86.495781"
+    },
+    {
+      "unitNumber": "Rescue 1",
+      "status": "On Scene",
+      "runID": 3,
+      "callType": "Mental Health",
+      "callLocation": "30.393534, -86.495781"
+    },
+    {
+      "unitNumber": "Rescue 2",
+      "status": "Hospital",
+      "runID": 4,
+      "callType": "Bleeding",
+      "callLocation": "30.393534, -86.495781"
+    },
+    {
+      "unitNumber": "Engine 1",
+      "status": "Enroute",
+      "runID": 5,
+      "callType": "Cardiac Arrest",
+      "callLocation": "30.393534, -86.495781"
+    }
+  ]
+}

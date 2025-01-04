@@ -8,45 +8,21 @@ import {
   TableRow,
   Badge,
 } from "@tremor/react";
+import { useEffect, useState } from "react";
+import { CallData } from "../types";
 
 export function UnitBoard() {
-  const data: Array<{
-    unitNumber: string;
-    status: string;
-    runID: number;
-    callType: string;
-  }> = [
-    {
-      unitNumber: "Engine 1",
-      status: "Dispatched",
-      runID: 1,
-      callType: "Sick Person",
-    },
-    {
-      unitNumber: "Engine 2",
-      status: "Enroute",
-      runID: 2,
-      callType: "Cardiac Arrest",
-    },
-    {
-      unitNumber: "Rescue 1",
-      status: "On Scene",
-      runID: 3,
-      callType: "Mental Health",
-    },
-    {
-      unitNumber: "Rescue 2",
-      status: "Hospital",
-      runID: 4,
-      callType: "Bleeding",
-    },
-    {
-      unitNumber: "Engine 1",
-      status: "Enroute",
-      runID: 5,
-      callType: "Cardiac Arrest",
-    },
-  ];
+  const [data, setData] = useState<[CallData]>();
+
+  useEffect(() => {
+    fetch("http://localhost:3000/callData")
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        setData(result);
+      });
+  }, [data]);
 
   return (
     <>
@@ -60,22 +36,21 @@ export function UnitBoard() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((item) => (
-            <TableRow key={item.unitNumber}>
-              <TableCell>{item.runID}</TableCell>
-              <TableCell>{item.unitNumber}</TableCell>
-              <TableCell>
-                <Badge
-                // variant={item.status === "Inactive" ? "warning" : "default"}
-                >
-                  {item.status}
-                </Badge>
-              </TableCell>
-              <TableCell>{item.callType}</TableCell>
-              <TableCell className="text-right">{item.costs}</TableCell>
-              <TableCell className="text-right">{item.lastEdited}</TableCell>
-            </TableRow>
-          ))}
+          {data &&
+            data.map((item) => (
+              <TableRow key={item.unitNumber}>
+                <TableCell>{item.runID}</TableCell>
+                <TableCell>{item.unitNumber}</TableCell>
+                <TableCell>
+                  <Badge
+                  // variant={item.status === "Inactive" ? "warning" : "default"}
+                  >
+                    {item.status}
+                  </Badge>
+                </TableCell>
+                <TableCell>{item.callType}</TableCell>
+              </TableRow>
+            ))}
         </TableBody>
       </Table>
     </>
