@@ -2,6 +2,8 @@
 import { Card, Divider, Select, SelectItem } from "@tremor/react";
 import Map from "./components/Map";
 import { UnitBoard } from "./components/UnitBoard";
+import { useEffect, useState } from "react";
+import { CallData } from "./types";
 
 function ContentPlaceholder() {
   return (
@@ -33,7 +35,26 @@ function ContentPlaceholder() {
   );
 }
 
-export default function Example() {
+export default function App() {
+  const [data, setData] = useState<CallData[]>([
+    {
+      runID: -1,
+      unitNumber: -1,
+      status: "",
+      callType: "",
+      callLocation: "",
+    },
+  ]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/callData")
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        setData(result);
+      });
+  }, [data]);
   return (
     <>
       <div className="p-4 sm:p-6 lg:p-8 bg-gray-900">
@@ -79,10 +100,10 @@ export default function Example() {
                 <div className="h-28 py-2">
                   <ContentPlaceholder />
                 </div> */}
-                <UnitBoard />
+                <UnitBoard data={data} />
               </div>
               <div className="h-56 p-4 md:col-span-6 md:h-auto">
-                <Map />
+                <Map data={data} />
               </div>
             </div>
           </Card>

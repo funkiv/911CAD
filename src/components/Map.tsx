@@ -11,7 +11,7 @@ const center = {
   lng: 98.9853,
 };
 
-function Map() {
+function Map({ data }: { data: CallData[] }) {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: `${import.meta.env.VITE_GOOGLEMAPS_API_KEY}`,
