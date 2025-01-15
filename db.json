@@ -1,5 +1,5 @@
 {
-  "callData": [
+  "incidentData": [
     {
       "id": 32542057,
       "dispatchType": "ILLNESS - SEIZURE",
@@ -63,7 +63,7 @@
     {
       "id": 32542061,
       "dispatchType": "FIRE - VEHICLE",
-      "dispatchStatus": "Dispatched",
+      "dispatchStatus": "Cancelled",
       "address": "2001 BEACH BLVD",
       "city": "PANAMA CITY",
       "dispatchedUnits": [141901, 141902],
@@ -76,31 +76,35 @@
       "addressValue": "2001 BEACH BLVD"
     }
   ],
-  "apparatusList": [
+  "units": [
     {
       "id": 141893,
       "name": "Engine 1",
+      "unitType": "Engine",
       "stationNumber": 1,
       "inService": true,
       "isPrimary": true
     },
     {
       "id": 141894,
-      "name": "Engine 2",
+      "name": "Truck 2",
+      "unitType": "Truck",
       "stationNumber": 2,
       "inService": true,
       "isPrimary": true
     },
     {
       "id": 141895,
-      "name": "Engine 3",
+      "name": "Squad 3",
+      "unitType": "Squad",
       "stationNumber": 3,
       "inService": true,
       "isPrimary": true
     },
     {
       "id": 141896,
-      "name": "Engine 4",
+      "name": "Truck 4",
+      "unitType": "Truck",
       "stationNumber": 4,
       "inService": true,
       "isPrimary": true
@@ -108,6 +112,7 @@
     {
       "id": 141897,
       "name": "Engine 5",
+      "unitType": "Engine",
       "stationNumber": 5,
       "inService": true,
       "isPrimary": true
@@ -115,6 +120,7 @@
     {
       "id": 141898,
       "name": "Rescue 1",
+      "unitType": "Ambulance",
       "stationNumber": 1,
       "inService": true,
       "isPrimary": true
@@ -122,6 +128,7 @@
     {
       "id": 141899,
       "name": "Rescue 2",
+      "unitType": "Ambulance",
       "stationNumber": 2,
       "inService": true,
       "isPrimary": true
@@ -129,6 +136,7 @@
     {
       "id": 141900,
       "name": "Rescue 3",
+      "unitType": "Ambulance",
       "stationNumber": 3,
       "inService": true,
       "isPrimary": true
@@ -136,6 +144,7 @@
     {
       "id": 141901,
       "name": "Rescue 4",
+      "unitType": "Ambulance",
       "stationNumber": 4,
       "inService": true,
       "isPrimary": true
@@ -143,6 +152,7 @@
     {
       "id": 141902,
       "name": "Rescue 5",
+      "unitType": "Ambulance",
       "stationNumber": 5,
       "inService": true,
       "isPrimary": true
