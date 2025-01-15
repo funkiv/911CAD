@@ -8,16 +8,16 @@ import {
   TableRow,
   Badge,
 } from "@tremor/react";
-import { CallData } from "../types";
+import { IncidentData } from "../types";
 
-export function UnitBoard({ data }: { data: CallData[] }) {
+export function UnitBoard({ data }: { data: IncidentData[] }) {
   return (
     <>
       <Table>
         <TableHead>
           <TableRow>
             <TableHeaderCell>Run ID</TableHeaderCell>
-            <TableHeaderCell>Unit Number</TableHeaderCell>
+            <TableHeaderCell>Dispatched Units</TableHeaderCell>
             <TableHeaderCell>Status</TableHeaderCell>
             <TableHeaderCell>Call Type</TableHeaderCell>
           </TableRow>
@@ -25,17 +25,17 @@ export function UnitBoard({ data }: { data: CallData[] }) {
         <TableBody>
           {data &&
             data.map((item) => (
-              <TableRow key={item.runID}>
-                <TableCell>{item.runID}</TableCell>
-                <TableCell>{item.unitNumber}</TableCell>
+              <TableRow key={item.id}>
+                <TableCell>{item.incidentNumber}</TableCell>
+                <TableCell>{item.dispatchedUnits || "None"}</TableCell>
                 <TableCell>
                   <Badge
                   // variant={item.status === "Inactive" ? "warning" : "default"}
                   >
-                    {item.status}
+                    {item.dispatchStatus}
                   </Badge>
                 </TableCell>
-                <TableCell>{item.callType}</TableCell>
+                <TableCell>{item.dispatchType}</TableCell>
               </TableRow>
             ))}
         </TableBody>

@@ -3,7 +3,7 @@ import { Card, Divider, Select, SelectItem } from "@tremor/react";
 import Map from "./components/Map";
 import { UnitBoard } from "./components/UnitBoard";
 import { useEffect, useState } from "react";
-import { CallData } from "./types";
+import { IncidentData } from "./types";
 
 function ContentPlaceholder() {
   return (
@@ -36,62 +36,59 @@ function ContentPlaceholder() {
 }
 
 export default function App() {
-  const [data, setData] = useState<CallData[]>([
-    {
-      runID: -1,
-      unitNumber: -1,
-      status: "",
-      callType: "",
-      callLocation: "",
-    },
-  ]);
+  const [data, setData] = useState<IncidentData[] | null>(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/callData")
-      .then((response) => {
-        return response.json();
-      })
-      .then((result) => {
-        setData(result);
-      });
+    try {
+      fetch("http://localhost:3000/callData")
+        .then((response) => {
+          return response.json();
+        })
+        .then((result) => {
+          setData(result);
+        });
+    } catch (e) {
+      console.log(e);
+    }
   }, [data]);
   return (
     <>
-      <div className="p-4 sm:p-6 lg:p-8 bg-gray-900">
-        <header>
-          <div className="sm:flex sm:items-center sm:justify-between">
-            <h3 className="text-tremor-title font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
-              Fire Department
-            </h3>
-            <div className="mt-4 sm:mt-0 sm:flex sm:items-center sm:space-x-2">
-              <Select
-                className="w-full sm:w-fit [&>button]:rounded-tremor-small"
-                enableClear={false}
-                defaultValue="1"
-              >
-                <SelectItem value="1">Today</SelectItem>
-                <SelectItem value="2">Last 7 days</SelectItem>
-                <SelectItem value="3">Last 4 weeks</SelectItem>
-                <SelectItem value="4">Last 12 months</SelectItem>
-              </Select>
-              <Select
-                className="mt-2 w-full sm:mt-0 sm:w-fit [&>button]:rounded-tremor-small"
-                enableClear={false}
-                defaultValue="1"
-              >
-                <SelectItem value="1">US-West</SelectItem>
-                <SelectItem value="2">US-East</SelectItem>
-                <SelectItem value="3">EU-Central-1</SelectItem>
-              </Select>
+      {data ? (
+        <div className="p-4 sm:p-6 lg:p-8 bg-gray-900">
+          <header>
+            <div className="sm:flex sm:items-center sm:justify-between">
+              <h3 className="text-tremor-title font-semibold text-tremor-content-strong dark:text-dark-tremor-content-strong">
+                Fire Department
+              </h3>
+              <div className="mt-4 sm:mt-0 sm:flex sm:items-center sm:space-x-2">
+                <Select
+                  className="w-full sm:w-fit [&>button]:rounded-tremor-small"
+                  enableClear={false}
+                  defaultValue="1"
+                >
+                  <SelectItem value="1">Today</SelectItem>
+                  <SelectItem value="2">Last 7 days</SelectItem>
+                  <SelectItem value="3">Last 4 weeks</SelectItem>
+                  <SelectItem value="4">Last 12 months</SelectItem>
+                </Select>
+                <Select
+                  className="mt-2 w-full sm:mt-0 sm:w-fit [&>button]:rounded-tremor-small"
+                  enableClear={false}
+                  defaultValue="1"
+                >
+                  <SelectItem value="1">US-West</SelectItem>
+                  <SelectItem value="2">US-East</SelectItem>
+                  <SelectItem value="3">EU-Central-1</SelectItem>
+                </Select>
+              </div>
             </div>
-          </div>
-        </header>
-        <Divider />
-        <main>
-          <Card className="rounded-tremor-small p-0">
-            <div className="grid-cols-12 divide-y divide-tremor-border dark:divide-dark-tremor-border md:grid md:divide-x md:divide-y-0">
-              <div className="divide-y divide-tremor-border px-2 dark:divide-dark-tremor-border md:col-span-6">
-                {/* <div className="h-28 py-2">
+          </header>
+          <Divider />
+          <main>
+            <Card className="rounded-tremor-small p-0">
+              <div className="grid-cols-12 divide-y divide-tremor-border dark:divide-dark-tremor-border md:grid md:divide-x md:divide-y-0">
+                <div className="divide-y divide-tremor-border px-2 dark:divide-dark-tremor-border md:col-span-6">
+                  {/* <div className="h-28 py-2">
                   <ContentPlaceholder />
                 </div>
                 <div className="h-28 py-2">
@@ -100,57 +97,60 @@ export default function App() {
                 <div className="h-28 py-2">
                   <ContentPlaceholder />
                 </div> */}
-                <UnitBoard data={data} />
+                  <UnitBoard data={data} />
+                </div>
+                <div className="h-56 p-4 md:col-span-6 md:h-auto">
+                  <Map data={data} />
+                </div>
               </div>
-              <div className="h-56 p-4 md:col-span-6 md:h-auto">
-                <Map data={data} />
-              </div>
+            </Card>
+            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <Card className="rounded-tremor-small p-0">
+                <div className="border-b border-tremor-border px-4 py-2 dark:border-dark-tremor-border">
+                  <h3 className="text-tremor-default font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
+                    Title
+                  </h3>
+                </div>
+                <div className="h-60 p-2">
+                  <ContentPlaceholder />
+                </div>
+              </Card>
+              <Card className="rounded-tremor-small p-0">
+                <div className="border-b border-tremor-border px-4 py-2 dark:border-dark-tremor-border">
+                  <h3 className="text-tremor-default font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
+                    Title
+                  </h3>
+                </div>
+                <div className="h-60 p-2">
+                  <ContentPlaceholder />
+                </div>
+              </Card>
+              <Card className="rounded-tremor-small p-0">
+                <div className="border-b border-tremor-border px-4 py-2 dark:border-dark-tremor-border">
+                  <h3 className="text-tremor-default font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
+                    Title
+                  </h3>
+                </div>
+                <div className="h-60 p-2">
+                  <ContentPlaceholder />
+                </div>
+              </Card>
+              <Card className="rounded-tremor-small p-0">
+                <div className="border-b border-tremor-border px-4 py-2 dark:border-dark-tremor-border">
+                  <h3 className="text-tremor-default font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
+                    Title
+                  </h3>
+                </div>
+                <div className="h-60 p-2">
+                  <ContentPlaceholder />
+                </div>
+              </Card>
             </div>
-          </Card>
-          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <Card className="rounded-tremor-small p-0">
-              <div className="border-b border-tremor-border px-4 py-2 dark:border-dark-tremor-border">
-                <h3 className="text-tremor-default font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
-                  Title
-                </h3>
-              </div>
-              <div className="h-60 p-2">
-                <ContentPlaceholder />
-              </div>
-            </Card>
-            <Card className="rounded-tremor-small p-0">
-              <div className="border-b border-tremor-border px-4 py-2 dark:border-dark-tremor-border">
-                <h3 className="text-tremor-default font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
-                  Title
-                </h3>
-              </div>
-              <div className="h-60 p-2">
-                <ContentPlaceholder />
-              </div>
-            </Card>
-            <Card className="rounded-tremor-small p-0">
-              <div className="border-b border-tremor-border px-4 py-2 dark:border-dark-tremor-border">
-                <h3 className="text-tremor-default font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
-                  Title
-                </h3>
-              </div>
-              <div className="h-60 p-2">
-                <ContentPlaceholder />
-              </div>
-            </Card>
-            <Card className="rounded-tremor-small p-0">
-              <div className="border-b border-tremor-border px-4 py-2 dark:border-dark-tremor-border">
-                <h3 className="text-tremor-default font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong">
-                  Title
-                </h3>
-              </div>
-              <div className="h-60 p-2">
-                <ContentPlaceholder />
-              </div>
-            </Card>
-          </div>
-        </main>
-      </div>
+          </main>
+        </div>
+      ) : (
+        <div>No Data Available.</div>
+      )}
     </>
   );
 }
