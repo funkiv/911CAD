@@ -1,7 +1,7 @@
-export type IncidentData = {
+export type Incident = {
   id: number;
   dispatchType: string;
-  dispatchStatus: string;
+  dispatchStatus: "Entering" | "Dispatched" | "Canceled";
   address: string;
   city: string;
   dispatchedUnits: number[];
@@ -12,4 +12,20 @@ export type IncidentData = {
   longitude: string;
   fullLocationValue: string;
   addressValue: string;
+};
+
+export type Unit = {
+  id: number;
+  name: string;
+  unitType: string;
+  stationNumber: number;
+  unitStatus:
+    | "In Quarters"
+    | "Enroute"
+    | "On Scene"
+    | "Transporting"
+    | "At Hospital"
+    | "Available";
+  inService: boolean;
+  isPrimary: boolean;
 };

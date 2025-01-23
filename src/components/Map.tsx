@@ -1,6 +1,7 @@
 //@ts-nocheck
 import React from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { Incident } from "../types";
 const containerStyle = {
   width: "100%",
   height: "100%",
@@ -11,7 +12,7 @@ const center = {
   lng: 98.9853,
 };
 
-function Map({ data }: { data: CallData[] }) {
+function Map({ incidents }: { incidents: Incident[] }) {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: `${import.meta.env.VITE_GOOGLEMAPS_API_KEY}`,

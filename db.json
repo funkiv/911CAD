@@ -81,6 +81,7 @@
       "id": 141893,
       "name": "Engine 1",
       "unitType": "Engine",
+      "unitStatus": "Enroute",
       "stationNumber": 1,
       "inService": true,
       "isPrimary": true

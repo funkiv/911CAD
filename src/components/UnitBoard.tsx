@@ -1,45 +1,25 @@
-// 'use client';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeaderCell,
-  TableRow,
-  Badge,
-} from "@tremor/react";
-import { IncidentData } from "../types";
+import { Unit } from "../types";
 
-export function UnitBoard({ data }: { data: IncidentData[] }) {
+export function UnitBoard({ units }: { units: Unit[] }) {
   return (
     <>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableHeaderCell>Run ID</TableHeaderCell>
-            <TableHeaderCell>Dispatched Units</TableHeaderCell>
-            <TableHeaderCell>Status</TableHeaderCell>
-            <TableHeaderCell>Call Type</TableHeaderCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data &&
-            data.map((item) => (
-              <TableRow key={item.id}>
-                <TableCell>{item.incidentNumber}</TableCell>
-                <TableCell>{item.dispatchedUnits || "None"}</TableCell>
-                <TableCell>
-                  <Badge
-                  // variant={item.status === "Inactive" ? "warning" : "default"}
-                  >
-                    {item.dispatchStatus}
-                  </Badge>
-                </TableCell>
-                <TableCell>{item.dispatchType}</TableCell>
-              </TableRow>
+      <table>
+        <thead>
+          <tr>
+            <th>Unit Name</th>
+            <th>Unit Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {units &&
+            units.map((unit) => (
+              <tr>
+                <td>{unit.name}</td>
+                <td>{unit.unitStatus}</td>
+              </tr>
             ))}
-        </TableBody>
-      </Table>
+        </tbody>
+      </table>
     </>
   );
 }
