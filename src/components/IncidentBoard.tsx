@@ -1,9 +1,11 @@
 import { Incident } from "../types";
-
-export function IncidentBoard({ incidents }: { incidents: Incident[] }) {
+interface IncidentBoardProps {
+  incidents: Incident[];
+}
+export function IncidentBoard({ incidents }: IncidentBoardProps) {
   return (
     <>
-      <table className="text-white">
+      <table className="text-white table-auto h-full w-full">
         <thead>
           <tr>
             <th>Run ID</th>
@@ -15,7 +17,7 @@ export function IncidentBoard({ incidents }: { incidents: Incident[] }) {
         <tbody>
           {incidents &&
             incidents.map((incident) => (
-              <tr key={incident.id}>
+              <tr className="hover:bg-slate-700" key={incident.id}>
                 <td>{incident.id}</td>
                 <td>{incident.dispatchStatus}</td>
                 <td>{incident.dispatchedUnits || "None"}</td>

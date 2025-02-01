@@ -31,36 +31,16 @@ export default function App() {
   return (
     <>
       {incidents && units ? (
-        <div className="p-4 sm:p-6 lg:p-8 bg-gray-900 h-lvh">
-          <header>
-            <div className="sm:flex sm:items-center sm:justify-between">
-              <h3 className="font-semibold text-white">Lorem, ipsum dolor.</h3>
-              <div className="mt-4 sm:mt-0 sm:flex sm:items-center sm:space-x-2"></div>
-            </div>
-          </header>
-
+        <div className="bg-gray-800 h-screen">
           <main>
-            <div className="border-solid border-2 border-gray-500 rounded-lg">
-              <div className="grid-cols-12 grid-rows-3 divide-y md:grid md:divide-x md:divide-y-0">
-                <div className="divide-y md:col-span-6">
+            <div className="h-full border-solid border border-white">
+              <div className="h-96 grid grid-flow-col grid-rows-3">
+                <div className="p-3 m-3 h-5/6 row-span-3 border rounded-xl">
                   <IncidentBoard incidents={incidents} />
                 </div>
-                <div className="h-full row-span-3 p-4 md:col-span-6">
+                <div className="p-3 m-3 h-5/6 row-span-3 col-span-3 border rounded-xl">
                   <Map incidents={incidents} />
                 </div>
-              </div>
-            </div>
-            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div className=" p-0">
-                <div className="border-b px-4 py-2">
-                  <h3 className="font-medium">Title</h3>
-                </div>
-                <div className="h-60 p-2">
-                  <ContentPlaceholder />
-                </div>
-              </div>
-              <div className="h-60 p-2">
-                <UnitBoard units={units} />
               </div>
             </div>
           </main>
