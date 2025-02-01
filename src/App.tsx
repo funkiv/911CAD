@@ -1,4 +1,4 @@
-import Map from "./components/Map";
+import CallMap from "./components/Map";
 import { IncidentBoard } from "./components/IncidentBoard";
 import { useEffect, useState } from "react";
 import { Incident, MapCoordinates, Unit } from "./types";
@@ -42,7 +42,7 @@ export default function App() {
                   />
                 </div>
                 <div className="p-3 m-3 h-5/6 row-span-3 col-span-3 border rounded-xl">
-                  <Map mapMarkerCords={mapMarkerCords} />
+                  <CallMap mapMarkerCords={mapMarkerCords} />
                 </div>
               </div>
             </div>
