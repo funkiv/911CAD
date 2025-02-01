@@ -29,3 +29,8 @@ export type Unit = {
   inService: boolean;
   isPrimary: boolean;
 };
+
+export type MapCoordinates = {
+  lat: number;
+  lng: number;
+};

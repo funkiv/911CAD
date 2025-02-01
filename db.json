@@ -25,8 +25,8 @@
       "incidentNumber": "032025-001202",
       "status_code": "Open",
       "create_date": "Jan 14, 2025 18:10",
-      "latitude": "30.1850347",
-      "longitude": "-85.6589382",
+      "latitude": 30.1850347,
+      "longitude": -85.6589382,
       "fullLocationValue": "2501 OAK ST, PANAMA CITY, FL, 32405",
       "addressValue": "2501 OAK ST"
     },

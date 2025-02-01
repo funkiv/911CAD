@@ -1,18 +1,25 @@
 //@ts-nocheck
-import React from "react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { Incident } from "../types";
+import React, { useEffect } from "react";
+import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import { Incident, MapCoordinates } from "../types";
 const containerStyle = {
   width: "100%",
   height: "100%",
 };
 
-const center = {
-  lat: 18.7883,
-  lng: 98.9853,
-};
+// const center: MapCoordinates = {
+//   lat: 18.7883,
+//   lng: 98.9853,
+// };
+interface MapProps {
+  mapMarkerCords: MapCoordinates | undefined;
+}
 
-function Map({ incidents }: { incidents: Incident[] }) {
+function Map({ mapMarkerCords }: MapProps) {
+  useEffect(() => {
+    console.log("Cords", mapMarkerCords);
+  }, [mapMarkerCords]);
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: `${import.meta.env.VITE_GOOGLEMAPS_API_KEY}`,
@@ -22,7 +29,7 @@ function Map({ incidents }: { incidents: Incident[] }) {
 
   const onLoad = React.useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
+    const bounds = new window.google.maps.LatLngBounds(mapMarkerCords);
     map.fitBounds(bounds);
 
     setMap(map);
@@ -35,12 +42,13 @@ function Map({ incidents }: { incidents: Incident[] }) {
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
-      center={center}
+      center={mapMarkerCords}
       zoom={10}
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
       {/* Child components, such as markers, info windows, etc. */}
+      <Marker position={mapMarkerCords} />
       <></>
     </GoogleMap>
   ) : (
