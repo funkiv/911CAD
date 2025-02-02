@@ -7,7 +7,7 @@ export default function App() {
   const [units, setUnits] = useState<Unit[] | null>(null);
   const [mapMarkerCords, setMapMarkerCords] = useState<
     MapCoordinates | undefined
-  >({ lat: 30.1588, lng: -85.6602 });
+  >(undefined);
   useEffect(() => {
     try {
       fetch("http://localhost:3000/incidentData")
@@ -33,15 +33,15 @@ export default function App() {
       {incidents && units ? (
         <div className="bg-gray-800 h-screen">
           <main>
-            <div className="h-full border-solid border border-white">
+            <div className="h-full border-solid border-2 border-gray-600">
               <div className="h-96 grid grid-flow-col grid-rows-3">
-                <div className="p-3 m-3 h-5/6 row-span-3 border rounded-xl">
+                <div className="p-3 m-3 h-5/6 row-span-3 border-2 border-gray-600 rounded-xl">
                   <IncidentBoard
                     incidents={incidents}
                     setMapMarkerCords={setMapMarkerCords}
                   />
                 </div>
-                <div className="p-3 m-3 h-5/6 row-span-3 col-span-3 border rounded-xl">
+                <div className="p-3 m-3 h-5/6 row-span-3 col-span-3 border-2 border-gray-600 rounded-xl">
                   <CallMap mapMarkerCords={mapMarkerCords} />
                 </div>
               </div>

@@ -15,8 +15,8 @@ export function IncidentBoard({
         <thead>
           <tr>
             <th>Run ID</th>
-            <th>Dispatched Units</th>
             <th>Status</th>
+            <th>Dispatched Units</th>
             <th>Call Type</th>
           </tr>
         </thead>
