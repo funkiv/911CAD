@@ -1,7 +1,7 @@
 export type Incident = {
   id: number;
   dispatchType: string;
-  dispatchStatus: "Entering" | "Dispatched" | "Canceled";
+  dispatchStatus: "Entering" | "Dispatched" | "Cancelled";
   address: string;
   city: string;
   dispatchedUnits: number[];

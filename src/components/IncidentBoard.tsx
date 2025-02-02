@@ -10,8 +10,11 @@ export function IncidentBoard({
   setMapMarkerCords,
 }: IncidentBoardProps) {
   return (
-    <>
-      <table className="text-white table-auto h-full w-full">
+    <div className="h-full overflow-y-scroll">
+      <button className="bg-red-600 w-full h-8 rounded-xl border-2 border-red-700 font-semibold text-white">
+        Add New Call
+      </button>
+      <table className="text-white text-center table-auto h-full w-full">
         <thead>
           <tr>
             <th>Run ID</th>
@@ -30,7 +33,7 @@ export function IncidentBoard({
                     lng: Number(incident.longitude),
                   })
                 }
-                className="hover:bg-slate-700"
+                className="hover:bg-slate-700 border border-gray-600 "
                 key={incident.id}
               >
                 <td>{incident.id}</td>
@@ -41,6 +44,6 @@ export function IncidentBoard({
             ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }
