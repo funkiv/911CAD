@@ -3,6 +3,8 @@ import IncidentBoard from "./components/IncidentBoard";
 import { useEffect, useState } from "react";
 import { Incident, MapCoordinates, Unit } from "./types";
 import NewCallDialogue from "./components/NewCallDialogue";
+import unitService from "./hooks/unitService";
+import incidentService from "./hooks/incidentService";
 export default function App() {
   const [incidents, setIncidents] = useState<Incident[] | null>(null);
   const [units, setUnits] = useState<Unit[] | null>(null);
@@ -24,20 +26,10 @@ export default function App() {
   ];
   useEffect(() => {
     try {
-      fetch("http://localhost:3000/incidentData")
-        .then((response) => {
-          return response.json();
-        })
-        .then((result) => {
-          setIncidents(result);
-        });
-      fetch("http://localhost:3000/units")
-        .then((response) => {
-          return response.json();
-        })
-        .then((result) => {
-          setUnits(result);
-        });
+      incidentService
+        .getAll()
+        .then((initialIncidents) => setIncidents(initialIncidents));
+      unitService.getAll().then((initialUnits) => setUnits(initialUnits));
     } catch (e) {
       console.log(e);
     }
@@ -47,8 +39,9 @@ export default function App() {
     setToggleNewCallDialogue(!toggleNewCallDialogue);
   };
 
-  const handleSubmitIncidentInfo = (newIncident: any) => {
+  const handleSubmitIncidentInfo = async (newIncident: Incident) => {
     console.log("Submit New Call:", newIncident);
+    await incidentService.create(newIncident);
   };
   return (
     <>

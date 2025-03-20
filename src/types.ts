@@ -1,10 +1,6 @@
-export type Incident = {
+export type Incident = IncidentPostBody & {
   id: number;
-  dispatchType: string;
-  dispatchStatus: "Entering" | "Dispatched" | "Cancelled";
-  address: string;
   city: string;
-  incidentNotes: string;
   dispatchedUnits: number[];
   incidentNumber: number;
   statusCode: string;
@@ -13,6 +9,12 @@ export type Incident = {
   longitude: string;
   fullLocationValue: string;
   addressValue: string;
+};
+export type IncidentPostBody = {
+  dispatchStatus: "Entering" | "Dispatched" | "Cancelled";
+  dispatchType: string;
+  address: string;
+  incidentNotes: string;
 };
 
 export type Unit = {

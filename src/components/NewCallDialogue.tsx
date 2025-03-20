@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
-import { Incident } from "../types";
-import { useEffect, useState } from "react";
+import { IncidentPostBody } from "../types";
+import { useState } from "react";
 
 interface NewCallFormProps {
   emsCallTypes: string[];
@@ -68,11 +68,13 @@ export default function NewCallDialogue({
         <button
           onClick={(e) => {
             e.preventDefault();
-            handleSubmitIncidentInfo({
+            const newIncident: IncidentPostBody = {
+              dispatchStatus: "Entering",
               dispatchType: newCallType,
               address: newIncidentAddress,
               incidentNotes: newCallNotes,
-            });
+            };
+            handleSubmitIncidentInfo(newIncident);
           }}
           className="bg-red-600 w-full h-8 rounded-xl border-2 border-red-700 font-semibold text-white"
         >
