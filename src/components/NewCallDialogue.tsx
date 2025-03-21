@@ -66,7 +66,7 @@ export default function NewCallDialogue({
           />
         </div>
         <button
-          onClick={(e) => {
+          onClick={async (e) => {
             e.preventDefault();
             const newIncident: IncidentPostBody = {
               dispatchStatus: "Entering",
@@ -74,7 +74,11 @@ export default function NewCallDialogue({
               address: newIncidentAddress,
               incidentNotes: newCallNotes,
             };
-            handleSubmitIncidentInfo(newIncident);
+            await handleSubmitIncidentInfo(newIncident);
+            setNewType(emsCallTypes[0]);
+            setNewIncidentAddress("");
+            setNewCallNotes("");
+            handleToggleNewCallDialogue();
           }}
           className="bg-red-600 w-full h-8 rounded-xl border-2 border-red-700 font-semibold text-white"
         >
