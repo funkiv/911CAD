@@ -5,6 +5,7 @@ import { Incident, MapCoordinates, Unit } from "./types";
 import NewCallDialogue from "./components/NewCallDialogue";
 import unitService from "./hooks/unitService";
 import incidentService from "./hooks/incidentService";
+import { UnitBoard } from "./components/UnitBoard";
 export default function App() {
   const [incidents, setIncidents] = useState<Incident[] | null>(null);
   const [units, setUnits] = useState<Unit[] | null>(null);
@@ -33,7 +34,7 @@ export default function App() {
     } catch (e) {
       console.log(e);
     }
-  }, [incidents]);
+  }, [incidents, units]);
 
   const handleToggleNewCallDialogue = () => {
     setToggleNewCallDialogue(!toggleNewCallDialogue);
@@ -65,6 +66,14 @@ export default function App() {
                 </div>
                 <div className="p-3 m-3 h-5/6 row-span-3 col-span-3 border-2 border-gray-600 rounded-xl">
                   <CallMap mapMarkerCords={mapMarkerCords} />
+                </div>
+              </div>
+              <div className="h-96 grid grid-flow-col grid-rows-3">
+                <div className="p-3 m-3 h-5/6 row-span-3 border-2 border-gray-600 rounded-xl">
+                  <div>void</div>
+                </div>
+                <div className="p-3 m-3 h-5/6 row-span-3 col-span-1 border-2 border-gray-600 rounded-xl">
+                 <UnitBoard units={units}/>
                 </div>
               </div>
             </div>
