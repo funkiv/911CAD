@@ -19,7 +19,7 @@ export default function NewCallDialogue({
   const [newCallNotes, setNewCallNotes] = useState("");
   return (
     <dialog
-      className=" bg-gray-800 border-2 rounded-xl border-gray-200 text-white h-full w-1/3 z-50"
+      className="mt-12 h-1/2 w-1/2 bg-gray-800 border-2 rounded-xl border-gray-200 text-white z-50"
       open={toggleNewCallDialogue}
     >
       <div
