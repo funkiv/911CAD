@@ -53,28 +53,24 @@ export default function App() {
         handleToggleNewCallDialogue={handleToggleNewCallDialogue}
       />
       {incidents && units ? (
-        <div className="bg-gray-800 h-screen">
+        <div className="bg-gray-800 lg:h-screen">
           <main>
-            <div className="h-full border-solid border-2 border-gray-600">
-              <div className="h-96 grid grid-flow-col grid-rows-3">
-                <div className="p-3 m-3 h-5/6 row-span-3 border-2 border-gray-600 rounded-xl">
-                  <IncidentBoard
-                    incidents={incidents}
-                    setMapMarkerCords={setMapMarkerCords}
-                    handleToggleNewCallDialogue={handleToggleNewCallDialogue}
-                  />
-                </div>
-                <div className="p-3 m-3 h-5/6 row-span-3 col-span-3 border-2 border-gray-600 rounded-xl">
-                  <CallMap mapMarkerCords={mapMarkerCords} />
-                </div>
+            <div className="border-solid border-2 border-gray-600 flex-row lg:grid lg:grid-cols-6 lg:grid-rows-6">
+              <div className="p-3 m-3 h-64 lg:h-auto lg:row-span-6 lg:col-span-3 border-2 border-gray-600 rounded-xl">
+                <IncidentBoard
+                  incidents={incidents}
+                  setMapMarkerCords={setMapMarkerCords}
+                  handleToggleNewCallDialogue={handleToggleNewCallDialogue}
+                />
               </div>
-              <div className="h-96 grid grid-flow-col grid-rows-3">
-                <div className="p-3 m-3 h-5/6 row-span-3 border-2 border-gray-600 rounded-xl">
-                  <div>void</div>
-                </div>
-                <div className="p-3 m-3 h-5/6 row-span-3 col-span-1 border-2 border-gray-600 rounded-xl">
-                 <UnitBoard units={units}/>
-                </div>
+              <div className="p-3 m-3 h-96 lg:row-span-6 lg:col-span-3 border-2 border-gray-600 rounded-xl">
+                <CallMap mapMarkerCords={mapMarkerCords} />
+              </div>
+              <div className="p-3 m-3 h-32 lg:h-auto lg:row-span-3 lg:col-span-2 border-2 border-gray-600 rounded-xl">
+                <div>void</div>
+              </div>
+              <div className="p-3 m-3 h-96 lg:row-span-3 lg:col-span-4 border-2 border-gray-600 rounded-xl">
+                <UnitBoard units={units} />
               </div>
             </div>
           </main>

@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "server": "npx json-server db.json",
-    "lint": "eslint .",
+    "lint": "eslint .", 
     "preview": "vite preview"
   },
   "dependencies": {
