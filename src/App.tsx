@@ -53,7 +53,7 @@ export default function App() {
         handleToggleNewCallDialogue={handleToggleNewCallDialogue}
       />
       {incidents && units ? (
-        <main className="lg:h-screen bg-gray-800">
+        <main className="bg-gray-800">
           <div className="border-solid border-2 border-gray-600 flex-row lg:grid lg:grid-cols-6 lg:grid-rows-6">
             <div className="p-3 m-3 h-64 lg:h-auto lg:row-span-6 lg:col-span-3 border-2 border-gray-600 rounded-xl">
               <IncidentBoard
