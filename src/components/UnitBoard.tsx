@@ -3,7 +3,7 @@ import { Unit } from "../types";
 export function UnitBoard({ units }: { units: Unit[] }) {
   return (
     <>
-      <table className="text-white text-center table-auto h-full w-full">
+      <table className="text-white text-center table-auto w-full">
         <thead>
           <tr>
             <th>Unit Name</th>

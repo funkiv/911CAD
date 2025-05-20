@@ -19,10 +19,11 @@ export default function IncidentBoard({
       >
         Add New Call
       </button>
-      <table className="text-white text-center table-auto h-full w-full">
+      <table className="text-white text-center table-auto w-full">
         <thead>
           <tr>
             <th>Run ID</th>
+            <th>Address</th>
             <th>Status</th>
             <th>Dispatched Units</th>
             <th>Call Type</th>
@@ -38,10 +39,11 @@ export default function IncidentBoard({
                     lng: Number(incident.longitude),
                   })
                 }
-                className="hover:bg-slate-700 border border-gray-600 "
+                className="hover:bg-slate-700 border border-gray-600"
                 key={incident.id}
               >
                 <td>{incident.id}</td>
+                <td>{incident.address}</td>
                 <td>{incident.dispatchStatus}</td>
                 <td>{incident.dispatchedUnits || "None"}</td>
                 <td>{incident.dispatchType}</td>

@@ -1,18 +1,13 @@
 export type Incident = IncidentPostBody & {
   id: number;
-  city: string;
   dispatchedUnits: number[];
-  incidentNumber: number;
-  statusCode: string;
   createDate: string;
-  latitude: string;
-  longitude: string;
-  fullLocationValue: string;
-  addressValue: string;
 };
 export type IncidentPostBody = {
-  dispatchStatus: "Entering" | "Dispatched" | "Cancelled";
   dispatchType: string;
+  dispatchStatus: "Entering" | "Dispatched" | "Cancelled";
+  latitude: string;
+  longitude: string;
   address: string;
   incidentNotes: string;
 };
@@ -30,7 +25,6 @@ export type Unit = {
     | "At Hospital"
     | "Available";
   inService: boolean;
-  isPrimary: boolean;
 };
 
 export type MapCoordinates = {

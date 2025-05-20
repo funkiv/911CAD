@@ -1,123 +1,14 @@
 {
   "incidentData": [
     {
-      "id": "32542057",
+      "id": "032025-001201",
       "dispatchType": "ILLNESS - SEIZURE",
       "dispatchStatus": "Entering",
       "address": "1940 HARRISON AV",
-      "city": "PANAMA CITY",
-      "dispatchedUnits": null,
-      "incidentNumber": "032025-001201",
-      "status_code": "Open",
-      "create_date": "Jan 14, 2025 17:44",
       "latitude": "30.1840267",
       "longitude": "-85.6581373",
-      "fullLocationValue": "1940 HARRISON AVE, PANAMA CITY, FL, 32405",
-      "addressValue": "1940 HARRISON AV"
-    },
-    {
-      "id": "32542058",
-      "dispatchStatus": "Dispatched",
-      "dispatchType": "FIRE - STRUCTURE",
-      "address": "2501 OAK ST",
-      "city": "PANAMA CITY",
-      "dispatchedUnits": [
-        141895,
-        141896
-      ],
-      "incidentNumber": "032025-001202",
-      "status_code": "Open",
-      "create_date": "Jan 14, 2025 18:10",
-      "latitude": 30.1850347,
-      "longitude": -85.6589382,
-      "fullLocationValue": "2501 OAK ST, PANAMA CITY, FL, 32405",
-      "addressValue": "2501 OAK ST"
-    },
-    {
-      "id": "32542059",
-      "dispatchType": "TRAFFIC ACCIDENT",
-      "dispatchStatus": "Dispatched",
-      "address": "6005 HWY 231",
-      "city": "PANAMA CITY",
-      "dispatchedUnits": [
-        141897,
-        141898
-      ],
-      "incidentNumber": "032025-001203",
-      "status_code": "Closed",
-      "create_date": "Jan 14, 2025 19:00",
-      "latitude": "30.1812378",
-      "longitude": "-85.6645289",
-      "fullLocationValue": "6005 HWY 231, PANAMA CITY, FL, 32405",
-      "addressValue": "6005 HWY 231"
-    },
-    {
-      "id": "32542060",
-      "dispatchType": "ILLNESS - HEART ATTACK",
-      "dispatchStatus": "Dispatched",
-      "address": "1432 RIDGE RD",
-      "city": "PANAMA CITY",
-      "dispatchedUnits": [
-        141899,
-        141900
-      ],
-      "incidentNumber": "032025-001204",
-      "status_code": "Open",
-      "create_date": "Jan 14, 2025 20:15",
-      "latitude": "30.1863445",
-      "longitude": "-85.6623124",
-      "fullLocationValue": "1432 RIDGE RD, PANAMA CITY, FL, 32405",
-      "addressValue": "1432 RIDGE RD"
-    },
-    {
-      "id": "32542061",
-      "dispatchType": "FIRE - VEHICLE",
-      "dispatchStatus": "Cancelled",
-      "address": "2001 BEACH BLVD",
-      "city": "PANAMA CITY",
-      "dispatchedUnits": [
-        141901,
-        141902
-      ],
-      "incidentNumber": "032025-001205",
-      "status_code": "Closed",
-      "create_date": "Jan 14, 2025 21:00",
-      "latitude": "30.1874376",
-      "longitude": "-85.6613923",
-      "fullLocationValue": "2001 BEACH BLVD, PANAMA CITY, FL, 32405",
-      "addressValue": "2001 BEACH BLVD"
-    },
-    {
-      "id": "941e",
-      "dispatchType": "Sick Person",
-      "address": "d",
-      "incidentNotes": "d"
-    },
-    {
-      "id": "2366",
-      "dispatchType": "Sick Person",
-      "address": "d",
-      "incidentNotes": "d"
-    },
-    {
-      "id": "ae49",
-      "dispatchType": "Sick Person",
-      "address": "3",
-      "incidentNotes": "3"
-    },
-    {
-      "id": "d00c",
-      "dispatchStatus": "Entering",
-      "dispatchType": "Sick Person",
-      "address": "d",
-      "incidentNotes": ""
-    },
-    {
-      "id": "6605",
-      "dispatchStatus": "Entering",
-      "dispatchType": "Sick Person",
-      "address": "d",
-      "incidentNotes": "d"
+      "dispatchedUnits": null,
+      "createDate": "Jan 14, 2025 17:44"
     }
   ],
   "units": [
@@ -125,82 +16,9 @@
       "id": "141893",
       "name": "Engine 1",
       "unitType": "Engine",
-      "unitStatus": "Enroute",
       "stationNumber": 1,
       "inService": true,
-      "isPrimary": true
-    },
-    {
-      "id": "141894",
-      "name": "Truck 2",
-      "unitType": "Truck",
-      "stationNumber": 2,
-      "inService": true,
-      "isPrimary": true
-    },
-    {
-      "id": "141895",
-      "name": "Squad 3",
-      "unitType": "Squad",
-      "stationNumber": 3,
-      "inService": true,
-      "isPrimary": true
-    },
-    {
-      "id": "141896",
-      "name": "Truck 4",
-      "unitType": "Truck",
-      "stationNumber": 4,
-      "inService": true,
-      "isPrimary": true
-    },
-    {
-      "id": "141897",
-      "name": "Engine 5",
-      "unitType": "Engine",
-      "stationNumber": 5,
-      "inService": true,
-      "isPrimary": true
-    },
-    {
-      "id": "141898",
-      "name": "Rescue 1",
-      "unitType": "Ambulance",
-      "stationNumber": 1,
-      "inService": true,
-      "isPrimary": true
-    },
-    {
-      "id": "141899",
-      "name": "Rescue 2",
-      "unitType": "Ambulance",
-      "stationNumber": 2,
-      "inService": true,
-      "isPrimary": true
-    },
-    {
-      "id": "141900",
-      "name": "Rescue 3",
-      "unitType": "Ambulance",
-      "stationNumber": 3,
-      "inService": true,
-      "isPrimary": true
-    },
-    {
-      "id": "141901",
-      "name": "Rescue 4",
-      "unitType": "Ambulance",
-      "stationNumber": 4,
-      "inService": true,
-      "isPrimary": true
-    },
-    {
-      "id": "141902",
-      "name": "Rescue 5",
-      "unitType": "Ambulance",
-      "stationNumber": 5,
-      "inService": true,
-      "isPrimary": true
+      "unitStatus": "Enroute"
     }
   ]
 }
